@@ -15,9 +15,28 @@
             } else if (computerSeed < 0.66) {
                 return computerSelection = "Paper" ;
             } else {
-                computerSelection = "Scissors" ;
+                return computerSelection = "Scissors" ;
             }
         }
+
+        //Define function playRound
+        function playRound(playerSelection, computerSelection) {
+            let a = playerSelection.toUpperCase()
+            let b = computerSelection.toUpperCase()
+            if (a === b) {
+                return result = "You drew! You both chose " + computerSelection ;
+            } else if ((a == "ROCK" && b == "PAPER") || (a == "PAPER" && b == "SCISSORS") || (a == "SCISSORS" && b == "ROCK")) {
+                return result = "You lose! " + computerSelection + " beats " + playerSelection ;
+            } else {
+                return result = "You win! " + playerSelection + " beats " + computerSelection ;
+            }
+        }
+
+        //Debug check via consol
+        const playerSelection = "rock"
+        const computerSelection = computerPlay()
+        console.log(playRound(playerSelection, computerSelection))
+
         </script>
     </body>
 </html>
