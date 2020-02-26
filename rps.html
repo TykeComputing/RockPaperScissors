@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+        //Define function computerPlay to return computer's choice.
+        function computerPlay() {
+            let computerSelection;
+            let computerSeed = Math.random();
+            if (computerSeed < 0.33){
+                return computerSelection = "Rock" ;
+            } else if (computerSeed < 0.66) {
+                return computerSelection = "Paper" ;
+            } else {
+                computerSelection = "Scissors" ;
+            }
+        }
+        </script>
+    </body>
+</html>
