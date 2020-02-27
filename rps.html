@@ -21,21 +21,70 @@
 
         //Define function playRound
         function playRound(playerSelection, computerSelection) {
-            let a = playerSelection.toUpperCase()
-            let b = computerSelection.toUpperCase()
+            let a = playerSelection.toUpperCase();
+            let b = computerSelection.toUpperCase();
             if (a === b) {
-                return result = "You drew! You both chose " + computerSelection ;
+                return resultCode = 0.5
+                return result = "You drew this round! You both chose " + computerSelection ;
             } else if ((a == "ROCK" && b == "PAPER") || (a == "PAPER" && b == "SCISSORS") || (a == "SCISSORS" && b == "ROCK")) {
-                return result = "You lose! " + computerSelection + " beats " + playerSelection ;
+                return resultCode = 0
+                return result = "You lost this round! " + computerSelection + " beats " + playerSelection ;
             } else {
-                return result = "You win! " + playerSelection + " beats " + computerSelection ;
+               return resultCode = 1
+               return result = "You won this round! " + playerSelection + " beats " + computerSelection ;
             }
         }
 
-        //Debug check via consol
-        const playerSelection = "rock"
-        const computerSelection = computerPlay()
-        console.log(playRound(playerSelection, computerSelection))
+        //Define function game
+        function game() {
+            
+            //Define Score variables
+            let scorePlayer = 0;
+            let scoreComputer = 0;
+
+            //Initiate loop of play
+            let i = 0
+            while (i < 5) {
+
+                //Define computerSelection and prompt user for playerSelection
+                let computerSelection = computerPlay();
+                let playerSelection = window.prompt('Please type Rock, Paper or Scissors');
+
+                //Call playRound & return Result to console
+                playRound(playerSelection, computerSelection);
+                console.log(result)
+
+                //Add up scores and write to console
+                if (resultCode === 0.5) {
+                    let scorePlayer = scorePlayer + resultCode
+                    let scoreComputer = scoreComputer + resultCode
+                    return scorePlayer
+                    return scoreComputer ;
+                } else if (resultCode === 1) {
+                    let scorePlayer = scorePlayer + resultCode
+                    return scorePlayer ;
+                } else {
+                    let scoreComputer = scoreComputer + resultCode
+                    return scoreComputer ;
+                }
+
+                console.log("Your score is: " + scorePlayer) ;
+                console.log("The computer's score is: " + scoreComputer) ;
+
+                //Increment loop variable
+                i++;
+
+            }
+
+            //Declare winner and final score
+            if (scorePlayer === scoreComputer) {
+                console.log("Final result: Draw. Better luck next time.") ;
+            } else if (scorePlayer > scoreComputer) {
+                console.log("Final result: YOU WIN! Congratulations!") ;
+            } else {
+                console.log("Final result: The Computer has won. Better luck next time.") ;
+            }
+        }
 
         </script>
     </body>
